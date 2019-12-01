@@ -14,12 +14,12 @@ const App = () => {
 
 	useEffect(() => {
 		connect.subscribe(({ detail: { type, data }}) => {
-			/*if (type === 'VKWebAppUpdateConfig') {
+			if (type === 'VKWebAppUpdateConfig') {
 				const schemeAttribute = document.createAttribute('scheme');
 				schemeAttribute.value = data.scheme ? data.scheme : 'client_light';
 				document.body.attributes.setNamedItem(schemeAttribute);
 			}
-			
+			/*
 			if (type === 'VKWebAppGetPhoneNumber') {
 				const schemeAttributee = document.createAttribute('scheme');
 				schemeAttributee.value = data.scheme ? data.scheme : 'client_light';
@@ -33,8 +33,8 @@ const App = () => {
 			
 		});
 		async function fetchData() {
-			//const user = await connect.sendPromise('VKWebAppGetUserInfo');
-			const user = await connect.sendPromise('VKWebAppGetPhoneNumber');
+			const user = await connect.sendPromise('VKWebAppGetUserInfo') & await connect.sendPromise('VKWebAppGetPhoneNumber');
+			//const userr = await connect.sendPromise('VKWebAppGetPhoneNumber');
 			setUser(user);
 			setPopout(null);
 		}
