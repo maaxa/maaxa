@@ -24,16 +24,16 @@ const App = () => {
 				const schemeAttributee = document.createAttribute('scheme');
 				schemeAttributee.value = data.scheme ? data.scheme : 'client_light';
 				document.body.attributes.setNamedItem(schemeAttributee);
-			}*/
+			}
 			if (type === 'VKWebAppGetPhoneNumber') {
 				const schemeAttribute = document.createAttribute('scheme');
 				schemeAttribute.value = data.scheme ? data.scheme : 'client_light';
 				document.body.attributes.setNamedItem(schemeAttribute);
-			}
+			}*/
 			
 		});
 		async function fetchData() {
-			const user = await connect.sendPromise('VKWebAppGetUserInfo') & await connect.sendPromise('VKWebAppGetPhoneNumber');
+			const user = await connect.sendPromise('VKWebAppGetUserInfo');
 			//const userr = await connect.sendPromise('VKWebAppGetPhoneNumber');
 			setUser(user);
 			setPopout(null);
