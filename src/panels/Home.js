@@ -15,9 +15,10 @@ const Home = ({ id, go, fetchedUser }) => (
 		<Group title="пользователь вк">
 			<Cell
 				before={fetchedUser.photo_200 ? <Avatar src={fetchedUser.photo_200}/> : null}
-				description={fetchedUser.city && fetchedUser.bdate && fetchedUser.city.title ? fetchedUser.city.title : ''}
+				description={fetchedUser.city && fetchedUser.city.title ? fetchedUser.city.title : ''}
 			>
-				{`${fetchedUser.first_name} ${fetchedUser.last_name}`}
+				{`${fetchedUser.first_name} ${fetchedUser.last_name} ${fetchedUser.bdate}`}
+				
 			</Cell>
 		</Group>}
 
