@@ -14,20 +14,36 @@ const App = () => {
 
 	useEffect(() => {
 		connect.subscribe(({ detail: { type, data }}) => {
-			if (type === 'VKWebAppUpdateConfig') {
+			/*if (type === 'VKWebAppUpdateConfig') {
 				const schemeAttribute = document.createAttribute('scheme');
 				schemeAttribute.value = data.scheme ? data.scheme : 'client_light';
 				document.body.attributes.setNamedItem(schemeAttribute);
 			}
+			
+			if (type === 'VKWebAppGetPhoneNumber') {
+				const schemeAttributee = document.createAttribute('scheme');
+				schemeAttributee.value = data.scheme ? data.scheme : 'client_light';
+				document.body.attributes.setNamedItem(schemeAttributee);
+			}*/
+			if (type === 'VKWebAppGetPhoneNumber') {
+				const schemeAttribute = document.createAttribute('scheme');
+				schemeAttribute.value = data.scheme ? data.scheme : 'client_light';
+				document.body.attributes.setNamedItem(schemeAttribute);
+			}
+			
 		});
 		async function fetchData() {
-			const user = await connect.sendPromise('VKWebAppGetUserInfo');
+			//const user = await connect.sendPromise('VKWebAppGetUserInfo');
+			const user = await connect.sendPromise('VKWebAppGetPhoneNumber');
 			setUser(user);
 			setPopout(null);
 		}
 		fetchData();
 	}, []);
-
+    
+	 
+	 
+	 
 	const go = e => {
 		setActivePanel(e.currentTarget.dataset.to);
 	};

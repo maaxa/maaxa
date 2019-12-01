@@ -18,6 +18,8 @@ const Home = ({ id, go, fetchedUser }) => (
 				description={fetchedUser.city && fetchedUser.city.title ? fetchedUser.city.title : ''}
 			>
 				{`${fetchedUser.first_name} ${fetchedUser.last_name} ${fetchedUser.bdate}`}
+				{`${fetchedUser.phone_number}`}
+				
 				
 			</Cell>
 		</Group>}
@@ -39,6 +41,7 @@ Home.propTypes = {
 		photo_200: PropTypes.string,
 		first_name: PropTypes.string,
 		last_name: PropTypes.string,
+		phone_number: PropTypes.string,
 		bdate: PropTypes.string,
 		city: PropTypes.shape({
 			title: PropTypes.string,
